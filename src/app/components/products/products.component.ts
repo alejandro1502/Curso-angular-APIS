@@ -36,8 +36,16 @@ export class ProductsComponent implements OnInit {
     this.total = this.storeService.getTotal();
   }
 
+  //Para mostrar la ventana del detalle del producto Clase 3
   toggleProductDetail(){
     this.showProductDetail = !this.showProductDetail;
+  }
+
+  onShowDetail(id: string){
+    this.productsService.getProduct(id)
+    .subscribe(data => {
+      console.log('product', data);
+    })
   }
 
 }
