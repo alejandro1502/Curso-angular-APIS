@@ -26,4 +26,9 @@ private apiUrl = 'https://young-sands-07814.herokuapp.com/api/products'
   create(dto: CreateProductDTO) {
     return this.http.post<Product>(this.apiUrl, dto);
   }
+
+  //Put clase 6
+  update(id: string,dto : any){
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, dto);
+  }
 }
