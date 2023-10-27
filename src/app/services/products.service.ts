@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Product } from './../models/product.model';
+import { Product, CreateProductDTO } from './../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,10 @@ private apiUrl = 'https://young-sands-07814.herokuapp.com/api/products'
 
   getProduct(id: string) {
     return this.http.get<Product>(`${this.apiUrl}/${id}`)
+  }
+
+  //Post clase 5
+  create(dto: CreateProductDTO) {
+    return this.http.post<Product>(this.apiUrl, dto);
   }
 }
